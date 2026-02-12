@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error 404 - Página no encontrada</title>
+    <style>
+        /* Estilos base */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 600px;
+            padding: 20px;
+        }
+
+        /* El número 404 */
+        h1 {
+            font-size: 8rem;
+            margin: 0;
+            font-weight: 900;
+            letter-weight: -5px;
+            color: #2c3e50;
+            line-height: 1;
+        }
+
+        /* Mensaje de error */
+        h2 {
+            font-size: 1.5rem;
+            margin-top: 0;
+            color: #7f8c8d;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: #95a5a6;
+            margin-bottom: 30px;
+        }
+
+        /* Botón de retorno */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        /* Animación sutil para el 404 */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .animation {
+            display: inline-block;
+            animation: float 4s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="animation">
+            <h1>404</h1>
+        </div>
+        <h2>¡Vaya! Parece que te has perdido.</h2>
+        <p>La página que buscas no existe o ha sido movida a una nueva ubicación.</p>
+        
+        <a href="/" class="btn">Volver al inicio</a>
+    </div>
+
+</body>
+</html>
