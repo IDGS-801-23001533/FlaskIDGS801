@@ -11,7 +11,7 @@ from models import db, Alumnos
 
 app = Flask(__name__)
 app.config.from_object(DevelopmentConfig)
-csrf=CSRFProtect()
+csrf=CSRFProtect(app)
 
 @app.errorhandler(404)
 def page_not_found(e):
@@ -25,7 +25,7 @@ def index():
 	alumno=Alumnos.query.all()
 	return render_template("index.html", form=create_form, alumno=alumno)
 
-@app.route('/Alumnos',methods=['GET','POST'])
+@app.route('/alumnos',methods=['GET','POST'])
 def alumnos():
 	create_form=forms.UserForm2(request.form)
 	if request.method=='POST':
