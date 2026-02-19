@@ -1,0 +1,44 @@
+{% extends "layout.html"%}
+
+{% block container1 %}
+
+{% import "_macros.html" as macros %}
+
+<div class="mb-5">
+  <br>
+<form method="POST" action="{{ url_for('modificar') }}" class="max-w-sm mx-auto">
+
+    <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+
+
+<div class="relative z-0 w-full mb-5 group">
+    <input type="hidden" name="id" value="{{ form.id.data }}"
+    class="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+    placeholder=" " />
+</div>
+
+  <div class="mb-5">
+    <label for="nombre" class="block mb-2.5 text-sm font-medium text-heading">Nombre</label>
+    <input value="{{ form.nombre.data }}" name="nombre" type="nombre" id="nombre" class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="Nombre" required />
+  </div>
+  <div class="mb-5">
+    <label for="apaterno" class="block mb-2.5 text-sm font-medium text-heading">Apellido</label>
+    <input value="{{ form.apaterno.data }}" name="apaterno" type="apaterno" id="apaterno" class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="Apellido" required />
+  </div>
+  <div class="mb-5">
+    <label for="email" class="block mb-2.5 text-sm font-medium text-heading">email</label>
+    <input value="{{ form.email.data }}" name="email" type="email" id="email" class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="Email" required />
+  </div>
+  <div class="mb-5">
+  <button type="submit" class="text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">
+    Modificar</button>
+  </div>
+  <div class="mb-5">
+        <a href="index" class="text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">
+      Cancelar
+    </a>
+  </div>
+</form>
+</div>
+
+{% endblock container1 %}

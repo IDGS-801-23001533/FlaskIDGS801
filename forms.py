@@ -5,6 +5,11 @@ from wtforms import validators
 
 class UserForm2(Form):
 
+    id = IntegerField("id", [
+        validators.DataRequired(message="El campo es requerido"),
+        validators.NumberRange(min=1, max=20, message="Ingrese valor valido")
+    ])
+
     nombre=StringField('nombre',[
     validators.DataRequired(message="E que rollo, no lo dejes vacio W"),
     validators.length(min=4, max=20, message="Requiere minimo 4 caracteres (mamaste ana)")
