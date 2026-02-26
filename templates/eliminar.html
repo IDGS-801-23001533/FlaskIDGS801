@@ -16,15 +16,19 @@
 
   <div class="mb-5">
     <label for="nombre" class="block mb-2.5 text-sm font-medium text-heading">Nombre</label>
-    <input value="{{ form.nombre.data }}" name="nombre" type="nombre" id="nombre" class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="Nombre" required />
+    <input value="{{ form.nombre.data }}" name="nombre" type="nombre" id="nombre" class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="Nombre" required readonly />
   </div>
   <div class="mb-5">
     <label for="apaterno" class="block mb-2.5 text-sm font-medium text-heading">Apellido</label>
-    <input value="{{ form.apaterno.data }}" name="apaterno" type="apaterno" id="apaterno" class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="Apellido" required />
+    <input value="{{ form.apaterno.data }}" name="apaterno" type="apaterno" id="apaterno" class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="Apellido" required readonly />
   </div>
   <div class="mb-5">
     <label for="email" class="block mb-2.5 text-sm font-medium text-heading">email</label>
-    <input value="{{ form.email.data }}" name="email" type="email" id="email" class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="Email" required />
+    <input value="{{ form.email.data }}" name="email" type="email" id="email" class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="Email" required readonly/>
+  </div>
+  <div class="mb-5">
+    <label for="telefono" class="block mb-2.5 text-sm font-medium text-heading">telefono</label>
+    <input value="{{ form.telefono.data }}" name="telefono" type="telefono" id="telefono" class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="Telefono" required readonly/>
   </div>
   <div class="mb-5">
   <button type="submit" class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-base text-sm px-4 py-2.5 text-center leading-5">

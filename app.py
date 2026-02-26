@@ -39,7 +39,8 @@ def detalles():
 		nombre=alumn1.nombre
 		apaterno=alumn1.apaterno
 		email=alumn1.email
-		return render_template("Detalles.html", id = id, nombre = nombre, apaterno = apaterno, email = email)
+		telefono=alumn1.telefono
+		return render_template("Detalles.html", id = id, nombre = nombre, apaterno = apaterno, email = email, telefono=telefono)
 
 @app.route('/alumnos',methods=['GET','POST'])
 def alumnos():
@@ -47,7 +48,8 @@ def alumnos():
 	if request.method=='POST':
 		alum=Alumnos(	nombre=create_form.nombre.data,
 						apaterno=create_form.apaterno.data,
-					  	email=create_form.email.data)
+					  	email=create_form.email.data,
+						telefono=create_form.telefono.data)
 		db.session.add(alum)
 		db.session.commit()
 		return redirect(url_for('index'))
@@ -65,6 +67,7 @@ def modificar():
 		create_form.nombre.data=str.rstrip(alum.nombre)
 		create_form.apaterno.data=alum.apaterno
 		create_form.email.data=alum.email
+		create_form.telefono.data=alum.telefono
 	if request.method=='POST':
 		id=create_form.id.data
 		alum = db.session.query(Alumnos).filter(Alumnos.id==id).first()
@@ -72,6 +75,7 @@ def modificar():
 		alum.nombre=str.rstrip(create_form.nombre.data)
 		alum.apaterno=create_form.apaterno.data
 		alum.email=create_form.email.data
+		alum.telefono=create_form.telefono.data
 		db.session.add(alum)
 		db.session.commit()
 		return redirect(url_for('index'))
@@ -88,7 +92,8 @@ def eliminar():
             create_form.nombre.data = alum.nombre
             create_form.apaterno.data = alum.apaterno
             create_form.email.data = alum.email
-            return render_template("eliminar.html", form = create_form)
+            create_form.telefono.data = alum.telefono
+        return render_template("eliminar.html", form = create_form)
         
     if request.method == 'POST':
         id =  create_form.id.data

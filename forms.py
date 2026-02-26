@@ -24,3 +24,8 @@ class UserForm2(Form):
         validators.DataRequired(message="E que rollo, no lo dejes vacio W"),
         validators.email(message="Eso no es un correo padrino, metele @ y .com minimo")
     ])
+
+    telefono=StringField("telefono",[
+        validators.DataRequired(message="E que rollo, no lo dejes vacio W"),
+        validators.length(min=10, max=10, message="Aqui van minimo 10 digitos paps")
+    ])
