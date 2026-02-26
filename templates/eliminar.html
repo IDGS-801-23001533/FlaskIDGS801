@@ -4,7 +4,7 @@
 
 <div class="mb-5">
   <br>
-<form method="POST" action="{{ url_for('modificar') }}" class="max-w-sm mx-auto">
+<form method="POST" action="{{ url_for('eliminar') }}" class="max-w-sm mx-auto">
 
     <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
 
@@ -27,8 +27,8 @@
     <input value="{{ form.email.data }}" name="email" type="email" id="email" class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="Email" required />
   </div>
   <div class="mb-5">
-  <button type="submit" class="text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">
-    Modificar</button>
+  <button type="submit" class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-base text-sm px-4 py-2.5 text-center leading-5">
+    Eliminar</button>
   </div>
   <div class="mb-5">
         <a href="index" class="text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">
