@@ -4,7 +4,7 @@
 
 <div class="mb-5">
   <br>
-<form method="POST" action="{{ url_for('modificar') }}" class="max-w-sm mx-auto">
+<form method="POST" action="{{ url_for('alumnos.modificarAlumnos') }}" class="max-w-sm mx-auto">
 
     <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
 
@@ -35,7 +35,7 @@
     Modificar</button>
   </div>
   <div class="mb-5">
-        <a href="index" class="text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">
+        <a href="AlumnosIndex" class="text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">
       Cancelar
     </a>
   </div>

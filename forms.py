@@ -29,3 +29,32 @@ class UserForm2(Form):
         validators.DataRequired(message="E que rollo, no lo dejes vacio W"),
         validators.length(min=10, max=10, message="Aqui van minimo 10 digitos paps")
     ])
+
+class UserForm3(Form):
+
+    matricula = IntegerField("matricula", [
+        validators.DataRequired(message="El campo es requerido"),
+        validators.NumberRange(min=1, max=20, message="Ingrese valor valido")
+    ])
+
+    nombre=StringField('nombre',[
+    validators.DataRequired(message="E que rollo, no lo dejes vacio W"),
+    validators.length(min=4, max=20, message="Requiere minimo 4 caracteres (mamaste ana)")
+    ])
+
+    apellidos=StringField("apellidos",[
+        validators.DataRequired(message="E que rollo, no lo dejes vacio W"),
+        validators.Length(min=3, max=10, message="Eso no es un apellido jefe no diga mmds")
+    ])
+
+    especialidad=StringField("especialidad",[
+        validators.DataRequired(message="E que rollo, no lo dejes vacio W"),
+        validators.length(min=10, max=10, message="Aqui van minimo 10 digitos paps")
+    ])
+
+    email=EmailField("email",[
+        validators.DataRequired(message="E que rollo, no lo dejes vacio W"),
+        validators.email(message="Eso no es un correo padrino, metele @ y .com minimo")
+    ])
+
+        

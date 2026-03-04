@@ -1,0 +1,37 @@
+{% extends "layout.html"%}
+
+{% block container1 %}
+
+<div class="mb-5">
+  <br>
+<form method="POST" action="{{ url_for('maestros.crearMaestros') }}" class="max-w-sm mx-auto">
+
+    <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+
+  <div class="mb-5">
+    <label for="nombre" class="block mb-2.5 text-sm font-medium text-heading">Nombre</label>
+    <input name="nombre" type="nombre" id="nombre" class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="Nombre" required />
+  </div>
+  <div class="mb-5">
+    <label for="apellidos" class="block mb-2.5 text-sm font-medium text-heading">Apellidos</label>
+    <input name="apellidos" type="apellidos" id="apellidos" class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="Apellidos" required />
+  </div>
+  <div class="mb-5">
+    <label for="especialidad" class="block mb-2.5 text-sm font-medium text-heading">Especialidad</label>
+    <input name="especialidad" type="especialidad" id="especialidad" class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="Especialidad" required />
+  </div>
+  <div class="mb-5">
+    <label for="email" class="block mb-2.5 text-sm font-medium text-heading">Email</label>
+    <input name="email" type="email" id="email" class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="Email" required />
+  </div>
+    <div class="mb-5">
+  <button type="submit" class="text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">Agregar</button>
+  </div>
+  <div class="mb-5">
+        <a href="MaestrosIndex" class="text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">
+      Cancelar
+    </a>
+  </div>
+</form>
+</div>
+{% endblock container1 %}

@@ -1,0 +1,82 @@
+{% extends "layout.html"%}
+
+{% block container1 %}
+
+<section class="bg-neutral-primary">
+  <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-12">
+
+    <div>
+    <a href="/CrearMaestros" class="block w-full text-center text-white bg-brand border border-transparent 
+              hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium 
+              shadow-xs font-medium leading-5 rounded-base text-sm 
+              px-4 py-2.5 mb-4 focus:outline-none">
+      Agregar Maestro
+    </a>
+    </div>
+
+<div class="relative overflow-x-auto bg-neutral-primary-soft shadow-xs rounded-base border border-default">
+
+    <table class="w-full text-sm text-left rtl:text-right text-body">
+        <thead class="bg-neutral-secondary-soft border-b border-default">
+            <tr>
+                <th scope="col" class="px-6 py-3 font-medium">
+                    Nombre
+                </th>
+                <th scope="col" class="px-6 py-3 font-medium">
+                    Apellido
+                </th>
+                <th scope="col" class="px-6 py-3 font-medium">
+                    Email
+                </th>
+                <th scope="col" class="px-6 py-3 font-medium">
+                    Especialidad
+                </th>
+                <th scope="col" class="px-6 py-3 font-medium">
+                    Editar
+                </th>
+                <th scope="col" class="px-6 py-3 font-medium">
+                    Detalles
+                </th>
+                <th scope="col" class="px-6 py-3 font-medium">
+                    Eliminar
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+         {% for maes in maestro %}
+         <tr
+          class="">
+
+        <td class="px-6 py-4">{{ maes.nombre }}</td>
+        <td class="px-6 py-4">{{ maes.apellidos }}</td>
+        <td class="px-6 py-4">{{ maes.email }}</td>
+        <td class="px-6 py-4">{{ maes.especialidad }}</td>
+        
+        
+        <td class="px-6 py-4 text-right">
+        <a href="modificarMaestros?matricula={{maes.matricula}}" 
+        class="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 font-medium rounded-base text-sm px-4 py-2.5 text-center leading-5">
+        Editar</a>
+        </td>
+        <td class="px-6 py-4 text-right">
+        <a href="detallesMaestros?matricula={{maes.matricula}}" 
+        class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-base text-sm px-4 py-2.5 text-center leading-5">
+        Detalles</a>
+        </td>
+
+        <td class="px-6 py-4 text-right">
+        <a href="eliminarMaestros?matricula={{maes.matricula}}" 
+        class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-base text-sm px-4 py-2.5 text-center leading-5">
+        Eliminar</a>
+        </td>
+
+         </tr>
+         {% endfor %}
+
+        </tbody>
+    </table>
+</div>
+  </div>
+</section>
+
+{% endblock container1 %}

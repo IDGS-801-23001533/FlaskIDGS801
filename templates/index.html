@@ -5,72 +5,48 @@
 <section class="bg-neutral-primary">
   <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-12">
 
-    <div>
-    <a href="alumnos" class="block w-full text-center text-white bg-brand border border-transparent 
-              hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium 
-              shadow-xs font-medium leading-5 rounded-base text-sm 
-              px-4 py-2.5 mb-4 focus:outline-none">
-      Agregar alumno
-    </a>
+    <div class="flex flex-col items-center justify-center gap-6 mt-8">
+
+      <h1 class="text-2xl font-semibold text-body mb-4">Bienvenido al sistema de gestión escolar</h1>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-lg">
+
+        <br>
+        <br>
+
+        <a href="AlumnosIndex"
+          class="flex flex-col items-center justify-center gap-3 p-8
+                bg-blue-600 rounded-base
+                hover:bg-blue-700 hover:border-blue-700 hover:shadow-md transition-all duration-200 group">
+          <span class="text-white font-medium text-base">Alumnos</span>
+          <span class="text-white text-center">Gestionar alumnos</span>
+        </a>
+
+        <br>
+        <br>
+
+        <a href="MaestrosIndex"
+          class="flex flex-col items-center justify-center gap-3 p-8
+                bg-blue-600 rounded-base
+                hover:bg-blue-700 hover:border-blue-700 hover:shadow-md transition-all duration-200 group">
+          <span class="text-white font-medium text-base">Maestros</span>
+          <span class="text-white text-center">Gestionar maestros</span>
+        </a>
+
+        <br>
+        <br>
+
+        <a href="CursosIndex"
+          class="flex flex-col items-center justify-center gap-3 p-8
+                bg-blue-600 rounded-base
+                hover:bg-blue-700 hover:border-blue-700 hover:shadow-md transition-all duration-200 group">
+          <span class="text-white font-medium text-base">Cursos</span>
+          <span class="text-white text-center">Gestionar cursos</span>
+        </a>
+
+      </div>
     </div>
 
-<div class="relative overflow-x-auto bg-neutral-primary-soft shadow-xs rounded-base border border-default">
-
-    <table class="w-full text-sm text-left rtl:text-right text-body">
-        <thead class="bg-neutral-secondary-soft border-b border-default">
-            <tr>
-                <th scope="col" class="px-6 py-3 font-medium">
-                    Nombre
-                </th>
-                <th scope="col" class="px-6 py-3 font-medium">
-                    Apellido
-                </th>
-                <th scope="col" class="px-6 py-3 font-medium">
-                    Email
-                </th>
-                <th scope="col" class="px-6 py-3 font-medium">
-                    Editar
-                </th>
-                <th scope="col" class="px-6 py-3 font-medium">
-                    Detalles
-                </th>
-                <th scope="col" class="px-6 py-3 font-medium">
-                    Eliminar
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-         {% for alum in alumno %}
-         <tr
-          class="">
-
-        <td class="px-6 py-4">{{ alum.nombre }}</td>
-        <td class="px-6 py-4">{{ alum.apaterno }}</td>
-        <td class="px-6 py-4">{{ alum.email }}</td>
-        <td class="px-6 py-4">{{ alum.telefono }}</td>
-        <td class="px-6 py-4 text-right">
-        <a href="modificar?id={{alum.id}}" 
-        class="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 font-medium rounded-base text-sm px-4 py-2.5 text-center leading-5">
-        Editar</a>
-        </td>
-        <td class="px-6 py-4 text-right">
-        <a href="detalles?id={{alum.id}}" 
-        class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-base text-sm px-4 py-2.5 text-center leading-5">
-        Detalles</a>
-        </td>
-
-        <td class="px-6 py-4 text-right">
-        <a href="eliminar?id={{alum.id}}" 
-        class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-base text-sm px-4 py-2.5 text-center leading-5">
-        Eliminar</a>
-        </td>
-
-         </tr>
-         {% endfor %}
-
-        </tbody>
-    </table>
-</div>
   </div>
 </section>
 
