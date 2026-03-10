@@ -2,7 +2,7 @@
 from . import alumnos
 import forms
 from flask import Flask, render_template, request, redirect, url_for
-from models import db, Alumnos
+from models import db, Alumnos, Inscripcion
 from flask_wtf.csrf import CSRFProtect
 
 @alumnos.route("/AlumnosIndex", methods=["GET", "POST"])
@@ -14,17 +14,11 @@ def indexAlumnos():
 
 @alumnos.route('/DetallesAlumnos',methods=['GET', 'POST'])
 def detallesAlumnos():
-	create_form=forms.UserForm2(request.form)
 	if request.method=='GET':
 		id=request.args.get('id')
 		#Select donde se busca solo por el ID
-		alumn1 = db.session.query(Alumnos).filter(Alumnos.id==id).first()
-		id=request.args.get('id')
-		nombre=alumn1.nombre
-		apaterno=alumn1.apaterno
-		email=alumn1.email
-		telefono=alumn1.telefono
-		return render_template("Alumnos/Detalles.html", id = id, nombre = nombre, apaterno = apaterno, email = email, telefono=telefono)
+		alumn1 = db.session.query(Alumnos).filter(Alumnos.id == id).first()
+		return render_template("Alumnos/Detalles.html", form=alumn1)
 
 @alumnos.route('/CrearAlumnos',methods=['GET','POST'])
 def crearAlumnos():

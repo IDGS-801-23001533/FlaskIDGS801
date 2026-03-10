@@ -1,0 +1,80 @@
+{% extends "layout.html"%}
+
+{% block container1 %}
+
+<section class="bg-neutral-primary">
+  <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-12">
+
+    <form method="POST" action="{{ url_for('cursos.eliminarCursos') }}" class="max-w-2xl mx-auto">
+      <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+      <input type="hidden" name="id" value="{{ curso.id }}">
+
+      <div class="bg-neutral-primary-soft border border-default rounded-base shadow-xs p-6 mb-6">
+        <h2 class="text-xl font-semibold text-heading mb-1">¿Seguro que quieres eliminar el curso "{{ curso.nombre }}"?</h2>
+        <p class="text-sm text-body mb-4">Esto es eliminación fisica asi que ni queriendo podremos regresar</p>
+
+        <div class="mb-3">
+          <span class="text-sm font-medium text-heading">Nombre:</span>
+          <span class="text-sm text-body ml-2">{{ curso.nombre }}</span>
+        </div>
+        <div class="mb-3">
+          <span class="text-sm font-medium text-heading">Descripcion:</span>
+          <span class="text-sm text-body ml-2">{{ curso.descripcion }}</span>
+        </div>
+        <div class="mb-3">
+          <span class="text-sm font-medium text-heading">Profesor:</span>
+          <span class="text-sm text-body ml-2">{{ curso.maestro.nombre }} {{ curso.maestro.apellidos }} — {{ curso.maestro.especialidad }}</span>
+        </div>
+        <div class="mb-3">
+          <span class="text-sm font-medium text-heading">Cantidad de alumnos:</span>
+          <span class="text-sm text-body ml-2">{{ curso.alumnos | length }}</span>
+        </div>
+      </div>
+
+      <div class="max-w-2xl mx-auto mb-6">
+        <h3 class="text-base font-semibold text-heading mb-3">Alumnos inscritos</h3>
+        <div class="relative overflow-x-auto bg-neutral-primary-soft shadow-xs rounded-base border border-default">
+          <table class="w-full text-sm text-left text-body">
+            <thead class="bg-neutral-secondary-soft border-b border-default">
+              <tr>
+                <th class="px-6 py-3 font-medium">#</th>
+                <th class="px-6 py-3 font-medium">Nombre</th>
+                <th class="px-6 py-3 font-medium">Apellido</th>
+                <th class="px-6 py-3 font-medium">Email</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for alumno in curso.alumnos %}
+              <tr class="border-b border-default">
+                <td class="px-6 py-4">{{ loop.index }}</td>
+                <td class="px-6 py-4">{{ alumno.nombre }}</td>
+                <td class="px-6 py-4">{{ alumno.apaterno }}</td>
+                <td class="px-6 py-4">{{ alumno.email }}</td>
+              </tr>
+              {% else %}
+              <tr>
+                <td colspan="4" class="px-6 py-4 text-center text-body">Sin alumnos inscritos</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="flex gap-3">
+        <button type="submit"
+          class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-base text-sm px-4 py-2.5 text-center leading-5">
+          Confirmar eliminación
+        </button>
+        <a href="{{ url_for('cursos.indexCursos') }}"
+          class="text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">
+          Cancelar
+        </a>
+      </div>
+
+    </form>
+
+  </div>
+</section>
+
+{% endblock container1 %}

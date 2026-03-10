@@ -1,0 +1,69 @@
+{% extends "layout.html"%}
+
+{% block container1 %}
+
+<section class="bg-neutral-primary">
+  <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-12">
+
+    <div class="bg-neutral-primary-soft border border-default rounded-base shadow-xs p-6 mb-6 max-w-2xl mx-auto">
+      <h2 class="text-xl font-semibold text-heading mb-4">Detalles</h2>
+
+      <div class="mb-3">
+        <span class="text-sm font-medium text-heading">Nombre del curso:</span>
+        <span class="text-sm text-body ml-2">{{ curso.nombre }}</span>
+      </div>
+      <div class="mb-3">
+        <span class="text-sm font-medium text-heading">Descripción:</span>
+        <span class="text-sm text-body ml-2">{{ curso.descripcion }}</span>
+      </div>
+      <div class="mb-3">
+        <span class="text-sm font-medium text-heading">Profesor:</span>
+        <span class="text-sm text-body ml-2">{{ curso.maestro.nombre }} {{ curso.maestro.apellidos }} — {{ curso.maestro.especialidad }}</span>
+      </div>
+      <div class="mb-3">
+        <span class="text-sm font-medium text-heading">Total de alumnos:</span>
+        <span class="text-sm text-body ml-2">{{ curso.alumnos | length }}</span>
+      </div>
+    </div>
+
+    <div class="max-w-2xl mx-auto">
+      <h3 class="text-base font-semibold text-heading mb-3">Listado de alumnos</h3>
+      <div class="relative overflow-x-auto bg-neutral-primary-soft shadow-xs rounded-base border border-default">
+        <table class="w-full text-sm text-left text-body">
+          <thead class="bg-neutral-secondary-soft border-b border-default">
+            <tr>
+              <th class="px-6 py-3 font-medium">Nombre</th>
+              <th class="px-6 py-3 font-medium">Apellido</th>
+              <th class="px-6 py-3 font-medium">Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for alumno in curso.alumnos %}
+            <tr class="border-b border-default hover:bg-neutral-secondary-medium">
+              <td class="px-6 py-4">{{ alumno.nombre }}</td>
+              <td class="px-6 py-4">{{ alumno.apaterno }}</td>
+              <td class="px-6 py-4">{{ alumno.email }}</td>
+            </tr>
+            {% else %}
+            <tr>
+              <td colspan="4" class="px-6 py-4 text-center text-body">Sin alumnos inscritos</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      <br>
+      
+      <div class="mt-5">
+        <a href="{{ url_for('cursos.indexCursos') }}"
+          class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-base text-sm px-4 py-2.5 text-center leading-5">
+          Regresar
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+{% endblock container1 %}

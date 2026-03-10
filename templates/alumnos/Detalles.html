@@ -4,12 +4,20 @@
 
 <div class="relative bg-neutral-primary-soft max-w-xs w-full p-6 border border-default rounded-base shadow-xs">
     <div class="flex flex-col items-center">
+
         <img class="w-20 h-10 mb-12 rounded-full" src="/static/src/image/ImagenPerfil.png" alt="Foto de perfil"/>
-        <h5 class="mb-0.5 text-xl font-semibold tracking-tight text-heading">Nombre: {{ nombre }}</h5>
-        <h5 class="mb-0.5 text-xl font-semibold tracking-tight text-heading">Apellido: {{ apaterno }}</h5>
-        <h5 class="mb-0.5 text-xl font-semibold tracking-tight text-heading">Email: {{ email }}</h5>
-        <h5 class="mb-0.5 text-xl font-semibold tracking-tight text-heading">Telefono: {{ telefono }}</h5>
-        </div>
+        <h5 class="mb-0.5 text-xl font-semibold tracking-tight text-heading">Nombre: {{ form.nombre }}</h5>
+        <h5 class="mb-0.5 text-xl font-semibold tracking-tight text-heading">Apellido: {{ form.apaterno }}</h5>
+        <h5 class="mb-0.5 text-xl font-semibold tracking-tight text-heading">Email: {{ form.email }}</h5>
+        <h5 class="mb-0.5 text-xl font-semibold tracking-tight text-heading">Telefono: {{ form.telefono }}</h5>
+        <h5 class="mb-0.5 text-xl font-semibold tracking-tight text-heading">Cursos:
+        {% for curso in form.cursos %}
+            {{ curso.nombre }}{% if not loop.last %}, {% endif %}
+        {% endfor %}
+        </h5>
+        
+    </div>
+
         <a href="AlumnosIndex" 
         class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-base text-sm px-4 py-2.5 text-center leading-5">
         Regresar</a>

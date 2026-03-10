@@ -1,0 +1,97 @@
+{% extends "layout.html"%}
+
+{% block container1 %}
+
+<div class="mb-5">
+  <br>
+  <form method="POST" action="{{ url_for('cursos.modificarCursos') }}" class="max-w-2xl mx-auto">
+
+    <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+    <input type="hidden" name="id" value="{{ curso.id }}">
+
+    <div class="mb-5">
+      <label for="nombre" class="block mb-2.5 text-sm font-medium text-heading">Nombre del curso</label>
+      <input name="nombre" type="text" id="nombre" value="{{ curso.nombre }}"
+        class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+        placeholder="Nombre del curso" required />
+    </div>
+
+    <div class="mb-5">
+      <label for="descripcion" class="block mb-2.5 text-sm font-medium text-heading">Descripción</label>
+      <textarea name="descripcion" id="descripcion" rows="3"
+        class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+        placeholder="Descripción del curso">{{ curso.descripcion }}</textarea>
+    </div>
+
+    <div class="mb-5">
+      <label for="maestro_id" class="block mb-2.5 text-sm font-medium text-heading">Profesor asignado</label>
+      <select name="maestro_id" id="maestro_id" required
+        class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs">
+        {% for maestro in maestros %}
+        <option value="{{ maestro.matricula }}"
+          {% if maestro.matricula == curso.maestro_id %}selected{% endif %}>
+          {{ maestro.nombre }} {{ maestro.apellidos }} — {{ maestro.especialidad }}
+        </option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="mb-5">
+      <label class="block mb-2.5 text-sm font-medium text-heading">Alumnos del curso</label>
+      <div class="relative overflow-x-auto bg-neutral-primary-soft shadow-xs rounded-base border border-default">
+        <table class="w-full text-sm text-left text-body">
+          <thead class="bg-neutral-secondary-soft border-b border-default">
+            <tr>
+              <th class="px-4 py-3 font-medium w-10">
+                <input type="checkbox" id="selectAll"
+                  class="w-4 h-4 border border-default-medium rounded-xs bg-neutral-secondary-medium focus:ring-2 focus:ring-brand-soft">
+              </th>
+              <th class="px-4 py-3 font-medium">Nombre</th>
+              <th class="px-4 py-3 font-medium">Apellido</th>
+              <th class="px-4 py-3 font-medium">Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for alumno in alumnos %}
+            <tr class="border-b border-default hover:bg-neutral-secondary-medium">
+              <td class="px-4 py-3">
+                <input type="checkbox" name="alumnos" value="{{ alumno.id }}"
+                  {% if alumno.id in alumnos_inscritos %}checked{% endif %}
+                  class="alumno-check w-4 h-4 border border-default-medium rounded-xs bg-neutral-secondary-medium focus:ring-2 focus:ring-brand-soft">
+              </td>
+              <td class="px-4 py-3">{{ alumno.nombre }}</td>
+              <td class="px-4 py-3">{{ alumno.apaterno }}</td>
+              <td class="px-4 py-3">{{ alumno.email }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="mb-5">
+      <button type="submit"
+        class="text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">
+        Guardar cambios
+      </button>
+    
+    
+      <a href="{{ url_for('cursos.indexCursos') }}"
+        class="text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">
+        Cancelar
+      </a>
+    </div>
+
+  </form>
+</div>
+
+<script>
+  const checkboxes = document.querySelectorAll('.alumno-check');
+  const selectAll = document.getElementById('selectAll');
+  selectAll.addEventListener('change', function () {
+    checkboxes.forEach(cb => cb.checked = this.checked);
+  });
+  selectAll.checked = [...checkboxes].every(cb => cb.checked);
+</script>
+
+{% endblock container1 %}
